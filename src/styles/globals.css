@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../assets/fonts/Inter-Regular.ttf') format('opentype'); /* Adjust the path as necessary */
+  font-weight: normal;
+  font-style: normal;
+   font-display: swap;
+}
+
+body {
+  font-family: 'Inter' ;
+  box-sizing: border-box;
+}
+
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Inter;
+  overflow-x: hidden;
+}
+
+
+
+html, body{
+  width: 100%;
+}
+input, button{
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+}
+a{
+  text-decoration: none;
+}
+.features {
+  display: flex;
+  flex-wrap: wrap;
+}

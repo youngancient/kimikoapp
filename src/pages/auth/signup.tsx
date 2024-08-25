@@ -8,6 +8,7 @@ import {
 } from "@/components/Icons/Icons";
 import { ErrorStyles } from "@/styles/Auth/Login";
 import { AuthStyles, SignupStyles } from "@/styles/Auth/Signup";
+import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -62,6 +63,13 @@ const SignUp = () => {
     router.push("/auth")
   };
   return (
+    <>
+    <Head>
+        <title>Signup</title>
+        <meta name="description" content="Create an account" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
     <SignupStyles>
       <div className="fl">
         <div className="logo-div-mobile">
@@ -190,6 +198,7 @@ const SignUp = () => {
         </div>
       </div>
     </SignupStyles>
+    </>
   );
 };
 

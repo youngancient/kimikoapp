@@ -34,6 +34,12 @@ html, body{
 input, button{
   outline: 0;
   border: 0;
+}
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #f0f2f5 inset !important;
+  -webkit-text-fill-color: #101928 !important;
+}
+button{
   cursor: pointer;
 }
 a{

@@ -46,7 +46,7 @@ export const AuthStyles = styled.div`
   form input {
     width: 100%;
     display: flex;
-    height: 2.25rem;
+    height: 3rem;
     padding: 0.5rem 0.75rem;
     align-items: center;
     gap: 0.75rem;

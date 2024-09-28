@@ -1,4 +1,4 @@
-import { IUserType } from "@/pages/auth/signup";
+import { IUserType } from "@/pages/auth";
 import styled, { css } from "styled-components";
 import { DocIcon, DocIconBlue, PatientIcon } from "../Icons/Icons";
 

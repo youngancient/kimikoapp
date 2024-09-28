@@ -12,10 +12,9 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider attribute="class">
       <Layout>
-        {!router.pathname.includes("auth") ||
-          (!router.pathname.includes("dashboard") && <Navbar />)}
+        {router.pathname.includes("auth") || <Navbar />}
         <Component {...pageProps} />
-        {!router.pathname.includes("auth") ||
+        {router.pathname.includes("auth") ||
           (!router.pathname.includes("dashboard") && <Footer />)}
         <ScrollUp />
       </Layout>

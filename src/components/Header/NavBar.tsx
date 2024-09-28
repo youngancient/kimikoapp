@@ -4,7 +4,8 @@ import { useRouter } from "next/router";
 import ThemeChanger from "../DarkSwitch";
 import Image from "next/image";
 
-const Layout = () => {
+
+const NavBar = () => {
     const dropdownRef = useRef<HTMLDivElement>(null);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const navigation = ["Home", "Features", "About Us"];
@@ -69,9 +70,9 @@ const Layout = () => {
                         <Link href="/" passHref>
                             <button
                                 className="px-10 py-3 text-white bg-blue rounded-full md:ml-5"
-                                onClick={() => router.push("/auth/signup")}
+                                onClick={() => router.push("/auth")}
                             >
-                                Create Account
+                                Connect Wallet
                             </button>
                         </Link>
                         <ThemeChanger />
@@ -126,7 +127,7 @@ const Layout = () => {
                     <Link href="/" passHref>
                         <button
                             className="px-10 py-3 text-white bg-blue rounded-full md:ml-5"
-                            onClick={() => router.push("/auth/signup")}
+                            onClick={() => router.push("/auth")}
                         >
                             Create Account
                         </button>
@@ -138,4 +139,4 @@ const Layout = () => {
     );
 };
 
-export default Layout;
+export default NavBar;

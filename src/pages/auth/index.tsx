@@ -1,3 +1,4 @@
+import { UserTypeOptions } from "@/components/Auth/Auth";
 import {
   BackButton,
   Mail,
@@ -6,18 +7,46 @@ import {
   WhiteLogoPin,
 } from "@/components/Icons/Icons";
 import { ErrorStyles } from "@/styles/Auth/Login";
-import { AuthStyles } from "@/styles/Auth/Signup";
+import { AuthStyles, SignupStyles } from "@/styles/Auth/Signup";
 import Head from "next/head";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 
+export interface IUserType {
+  name: "Patient" | "Doctor";
+  isSelected: boolean;
+}
+const AllUserTypes: IUserType[] = [
+  { name: "Patient", isSelected: false },
+  { name: "Doctor", isSelected: false },
+];
 interface IForm {
-  email: string;
-  password: string;
+  name: string;
+  specialty: string;
 }
 
-const Login = () => {
-  const router = useRouter();
+const SignUp = () => {
+  const [userType, setUserType] = useState<string | undefined>();
+  const [savedUserTypes, setSavedUserTypes] = useState(AllUserTypes);
+  const selectUserType = (name: string) => {
+    const newUserTypes = savedUserTypes.map((ele) => {
+      return { ...ele, isSelected: name === ele.name };
+    });
+    console.log(newUserTypes);
+    setSavedUserTypes(newUserTypes);
+  };
+  const saveUserType = () => {
+    const selectedType = savedUserTypes.find((ele) => ele.isSelected == true);
+    if (selectedType?.name == "Patient") {
+      router.push("/dashboard/patient");
+    } else {
+      setUserType(selectedType?.name);
+      
+    }
+  };
+
   const {
     register,
     reset,
@@ -26,24 +55,26 @@ const Login = () => {
   } = useForm<IForm>({
     mode: "onBlur",
     defaultValues: {
-      email: "",
-      password: "",
+      name: "",
+      specialty: "",
     },
   });
-  const login = (data: IForm) => {
-    if (data) {
-      router.push("/dashboard");
-    }
+
+  const router = useRouter();
+  const signup = (data: IForm) => {
+    console.log(data);
+    router.push("/auth");
   };
+
   return (
     <>
       <Head>
-        <title>Login</title>
-        <meta name="description" content="Login into your account" />
+        <title>Signup</title>
+        <meta name="description" content="Create an account" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <AuthStyles>
+      <SignupStyles>
         <div className="fl">
           <div className="logo-div-mobile">
             <WhiteLogoPin />
@@ -53,61 +84,85 @@ const Login = () => {
           </div>
           <div className="form-div">
             <BackButton href="/" />
-            <div className="intro">
-              <h3>Welcome back!!!</h3>
-              <p>
-                Manage Your Meds Like a Pro with Kimiko managing a chronic
-                condition like diabetes{" "}
-              </p>
-            </div>
-            <form onSubmit={handleSubmit(login)}>
-              <div className="fg">
-                <div className="form-ele">
-                  <label htmlFor="">Email Address</label>
-                  <div className="inp">
-                    <input
-                      type="email"
-                      {...register("email", { required: "Email is required" })}
-                      id=""
-                      placeholder="jude@gmail.com"
-                    />
-                    <Mail />
-                  </div>
-                  {errors?.email && errors.email.message && (
-                    <ErrorStyles> Email is required</ErrorStyles>
-                  )}
+            {userType ? (
+              <>
+                <div className="intro">
+                  <h3>Create Account</h3>
+                  <p>Manage Your Meds Like a Pro with Kimiko</p>
                 </div>
-                <div className="form-ele">
-                  <label htmlFor="">Password</label>
-                  <div className="inp">
-                    <input
-                      type="password"
-                      {...register("password", {
-                        required: "Password is required",
-                        minLength: 8,
-                      })}
-                      id=""
-                    />
-                    <ShowPwd />
+                <form onSubmit={handleSubmit(signup)}>
+                  <div className="fg">
+                    <div className="form-ele">
+                      <label htmlFor="">Name</label>
+                      <div className="inp">
+                        <input
+                          type="text"
+                          {...register("name", {
+                            required: "A name is required",
+                          })}
+                          id="name"
+                          placeholder="Dr Flickr"
+                        />
+                        <NameIcon />
+                      </div>
+                      {errors?.name && errors.name.message && (
+                        <ErrorStyles>Name is required</ErrorStyles>
+                      )}
+                    </div>
+                    <div className="form-ele">
+                      <label htmlFor="">Specialization</label>
+                      <div className="inp">
+                        <input
+                          type="text"
+                          {...register("specialty", {
+                            required: "specialty is required",
+                          })}
+                          id="role"
+                          placeholder="Gynacologist"
+                        />
+                        <Mail />
+                      </div>
+                      {errors?.specialty && errors.specialty.message && (
+                        <ErrorStyles> specialty is required</ErrorStyles>
+                      )}
+                    </div>
                   </div>
-                  {errors?.password && errors.password.message && (
-                    <ErrorStyles> Password is required</ErrorStyles>
-                  )}
-                  {errors?.password &&
-                    errors?.password.type === "minLength" && (
-                      <ErrorStyles>min length is 8</ErrorStyles>
-                    )}
+                  <div className="btn">
+                    <button type="submit">Create Account</button>
+                  </div>
+                </form>
+              </>
+            ) : (
+              <>
+                <div className="intro">
+                  <h3>Welcome to Kimiko!</h3>
+                  <p>
+                    Are you a medical professional who wants to track patients
+                    or you are a patient? Help us know
+                  </p>
                 </div>
-              </div>
-              <div className="btn">
-                <button type="submit">Login</button>
-              </div>
-            </form>
+                <div className="choose">
+                  {savedUserTypes.map((ele, index) => (
+                    <UserTypeOptions
+                      key={index}
+                      name={ele.name}
+                      isSelected={ele.isSelected}
+                      handleSelect={() => selectUserType(ele.name)}
+                    />
+                  ))}
+                </div>
+                <div className="btn">
+                  <button type="button" onClick={saveUserType}>
+                    Next
+                  </button>
+                </div>
+              </>
+            )}
           </div>
         </div>
-      </AuthStyles>
+      </SignupStyles>
     </>
   );
 };
 
-export default Login;
+export default SignUp;

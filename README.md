@@ -8,7 +8,7 @@ With Kimiko, patients earn **tokens** and unlock **exclusive NFTs** as they foll
 
 In building this project, I used Alchemy as an RPC Provider as defined in my hardhat config.
 
-- Kimiko Contract Code: https://github.com/youngancient/kimiko-contract
+- Kimiko Contract Repo: https://github.com/youngancient/kimiko-contract
 - Scroll Alchemy RPC usage in Hardhat config: https://github.com/youngancient/kimiko-contract/blob/main/hardhat.config.ts
 - Verified contract deployment: https://sepolia.scrollscan.com//address/0x8251aEA64aa7d28B9f536f7eb1E1db0BbC8b6386#code
 

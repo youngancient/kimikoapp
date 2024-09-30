@@ -98,7 +98,7 @@ const Hero: React.FC<HeroProps> = () => {
 
             <div className="flex flex-row md:flex-row justify-between lg:gap-8 lg:justify-start items-center">
               <button
-                className="px-2 py-3 whitespace-nowrap text-white bg-blue rounded-full "
+                className="px-3 py-3 whitespace-nowrap text-white bg-blue-700 rounded-full "
                 onClick={() => router.push("/auth")}
               >
                 Connect Wallet

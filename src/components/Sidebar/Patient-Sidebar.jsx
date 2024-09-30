@@ -8,29 +8,29 @@ import Link from 'next/link';
 
 const Psidebar = () => {
   return (
-    <div className="bg-blue-500 fixed text-white dark:text-white h-screen w-48 py-8 ">
+    <div className="bg-blue-500 shadow-md fixed text-white dark:text-white h-screen w-48 py-8 ">
       <div className="text-xl bg-white mx-3 py-2 flex justify-center items-center  font-bold mb-10">
       <Link href="/">
         <Image
             src="/Logo.svg"
             alt="N"
-            width="142"
+            width="102"
             height="40"
             className=""
         />
         </Link>
         </div>
-      <ul className="space-y-6 text-lg">
+      <ul className="space-y-8 flex flex-col text-xl">
 
         <Link href="/dashboard/patient" >
-        <li className="flex flex-col w-3/4 m-auto  items-center space-y-2 cursor-pointer hover:bg-blue-400 p-2 rounded">
+        <li className="flex flex-col w-3/4 text-md font-semibold m-auto  items-center space-y-2 cursor-pointer hover:bg-blue-400 p-2 rounded">
           <FaHome /> <span>Dashboard</span>
         </li>
         </Link>
         
-        <Link href="/dashboard/patient">
+        <Link href="/dashboard/patient/rewards">
         
-        <li className="flex flex-col w-3/4 m-auto  items-center   space-y-2 cursor-pointer hover:bg-blue-400 p-2 rounded">
+        <li className="flex flex-col text-md  font-semibold w-3/4 m-auto  items-center   space-y-2 cursor-pointer hover:bg-blue-400 p-2 rounded">
           <FaGift /> <span>Rewards</span>
         </li>
         </Link>

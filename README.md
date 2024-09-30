@@ -99,7 +99,7 @@ Here are some important links:
 
 - Connect Wallet
 
-  ![Connect Wallet](https://github.com/user-attachments/assets/71dfc440-b642-48e2-bcc3-543063339d8b)
+  ![Connect Wallet](https://github.com/user-attachments/assets/8d4b1b3a-edd8-4b9a-ba11-de4b91ae44f3)
 
 - SignIn Role
 

@@ -1,38 +1,84 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Kimiko: Onchain Medical Adherence System
+
+## Overview
+
+Kimiko is an onchain medical adherence system designed to help patients manage chronic conditions like diabetes or hypertension. The process of adhering to medications, tracking doctor visits, and maintaining lifestyle changes can be overwhelming, but Kimiko aims to simplify this process by rewarding patients who stay on track with their health.
+
+With Kimiko, patients earn **tokens** and unlock **exclusive NFTs** as they follow their prescribed treatment plans, making healthcare adherence fun and rewarding!
+
+---
+
+## Features
+
+- **Onchain Medication Tracking**: Patients can log and track their medication adherence directly on the blockchain.
+  
+- **Doctor-Patient Integration**: Doctors can add patients, assign medications, and monitor their adherence.
+  
+- **Real-Time Rewards**: Patients earn tokens for completing doses on time. Completing a full course of treatment grants even more rewards.
+  
+- **NFT Incentives**: Exclusive NFTs are unlocked when patients consistently follow their medication schedules, making the adherence journey exciting.
+  
+- **Role-Based Progression**: Patients level up through various roles based on their adherence score, from **Novice** to **Champ**.
+
+---
+
+## User Roles
+
+### 1. **Doctor**
+   - Can add new patients.
+   - Assign medications with specific dosages, intervals, and durations.
+   - Monitor patient progress and adherence.
+
+### 2. **Patient**
+   - Follow prescribed medications.
+   - Log when medications are taken.
+   - Earn tokens and unlock NFTs for adherence.
+   - Progress through roles based on adherence score:
+     - **Novice**
+     - **Active**
+     - **Consistent**
+     - **Top Gun**
+     - **Champ** (Top-level role)
+
+---
+
+## Token & NFT Rewards
+
+- **Token Rewards**: For each successfully completed medication course, patients earn **10 KMK tokens**.
+  
+- **Exclusive NFTs**: After accumulating enough adherence points and reaching the **Champ** role, patients can mint exclusive NFTs as a recognition of their dedication to health.
+
+---
+
+## Smart Contract Functionality
+
+- **Doctor Management**: 
+  - Add doctors with unique IDs and specializations.
+  
+- **Patient Management**: 
+  - Doctors can onboard patients, assigning them to specific medication schedules.
+  - Patients track their doses and adherence directly on-chain.
+  
+- **Medication Adherence**: 
+  - Medications are assigned with a defined interval and duration.
+  - Patients can only take medication within the allowed interval. Missing doses will negatively impact their adherence score.
+  
+- **Rewards System**: 
+  - Patients earn rewards for completing their medications on time.
+  - The rewards can be claimed in tokens, transferred to the patient’s beneficiary account.
+  
+- **Role Progression**: 
+  - As patients adhere to their schedule, they accumulate points and progress through roles, unlocking higher rewards and privileges.
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+- Basic knowledge of Solidity and blockchain concepts.
+- Ethereum-compatible wallet for interacting with the smart contract.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Setup
+1. Clone the repository.
+   ```bash
+   git clone https://github.com/your-username/kimiko-medical-adherence.git

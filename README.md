@@ -16,6 +16,16 @@ In building this project, I used Alchemy as an RPC Provider as defined in my har
 
 ---
 
+## Quick Links
+
+- [Features](#features)
+- [UserRoles](#features)
+- [Token & NFT Rewards](#features)
+- [Smart Contract Functionality](#features)
+- [UI Walkthrough](#features)
+
+---
+
 ## Features
 
 - **Onchain Medication Tracking**: Patients can log and track their medication adherence directly on the blockchain.
@@ -30,7 +40,7 @@ In building this project, I used Alchemy as an RPC Provider as defined in my har
 
 ---
 
-## User Roles
+## UserRoles
 
 ### 1. **Doctor**
    - Can add new patients.
@@ -80,13 +90,41 @@ In building this project, I used Alchemy as an RPC Provider as defined in my har
 
 ---
 
-## Getting Started
+## UI Walkthrough
 
-### Prerequisites
-- Basic knowledge of Solidity and blockchain concepts.
-- Ethereum-compatible wallet for interacting with the smart contract.
+- Landing Page
 
-### Setup
-1. Clone the repository.
-   ```bash
-   git clone https://github.com/your-username/kimiko-medical-adherence.git
+  ![LandingPage](https://github.com/user-attachments/assets/9a9647b6-0cbb-411d-8c23-f83a93a3e10d)
+
+- Connect Wallet
+
+  ![Connect Wallet](https://github.com/user-attachments/assets/71dfc440-b642-48e2-bcc3-543063339d8b)
+
+- SignIn Role
+
+  ![SignIn](https://github.com/user-attachments/assets/7b49c08a-2dae-4672-a86a-8526561e2ee3)
+
+- For Doctors
+
+  ![For Doctors](https://github.com/user-attachments/assets/813a73ba-c807-4d34-b5f3-5260b11e2d80)
+
+- Doctor Dashboard
+
+![Doctor Dashboard](https://github.com/user-attachments/assets/4af5af3a-8489-4011-bcd5-dfb7f301edd8)
+
+- Doctor Add patient
+
+![Doctor Add patient](https://github.com/user-attachments/assets/d3907541-e1db-4fb4-a448-2206d9d29232)
+
+- Doctor Add Patient Medication
+
+  ![Add Medications](https://github.com/user-attachments/assets/d5ecda5c-357d-4680-8564-7890c5638c06)
+
+- View Patients and Medications
+
+![View Patients and Medications](https://github.com/user-attachments/assets/6b793625-be92-4d3a-a7c3-f729bc6308b9)
+
+- For Patients
+
+![Patient Dashboard](https://github.com/user-attachments/assets/6504625c-d226-42b2-9c0c-9e98c52a4fc6)
+

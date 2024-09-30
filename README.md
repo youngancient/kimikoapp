@@ -2,7 +2,7 @@
 
 ## Overview
 
-Kimiko is an onchain medical adherence system designed to help patients manage chronic conditions like diabetes or hypertension. The process of adhering to medications, tracking doctor visits, and maintaining lifestyle changes can be overwhelming, but Kimiko aims to simplify this process by rewarding patients who stay on track with their health.
+Kimiko is an on-chain medical adherence system designed to help patients manage medications. Adhering to medications, tracking doctor visits, and maintaining lifestyle changes can be overwhelming, but Kimiko aims to simplify this process by rewarding patients who stay on track with their health. Patients can also decide to share these rewards with others.
 
 With Kimiko, patients earn **tokens** and unlock **exclusive NFTs** as they follow their prescribed treatment plans, making healthcare adherence fun and rewarding!
 
@@ -65,7 +65,7 @@ With Kimiko, patients earn **tokens** and unlock **exclusive NFTs** as they foll
   
 - **Rewards System**: 
   - Patients earn rewards for completing their medications on time.
-  - The rewards can be claimed in tokens, transferred to the patient’s beneficiary account.
+  - The rewards can be claimed in tokens, and transferred to the patient’s beneficiary account.
   
 - **Role Progression**: 
   - As patients adhere to their schedule, they accumulate points and progress through roles, unlocking higher rewards and privileges.

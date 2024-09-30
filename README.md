@@ -6,6 +6,12 @@ Kimiko is an on-chain medical adherence system designed to help patients manage 
 
 With Kimiko, patients earn **tokens** and unlock **exclusive NFTs** as they follow their prescribed treatment plans, making healthcare adherence fun and rewarding!
 
+Kimiko Contract Code: https://github.com/youngancient/kimiko-contract
+Verified contract deployment: https://sepolia.scrollscan.com//address/0x8251aEA64aa7d28B9f536f7eb1E1db0BbC8b6386#code
+
+Kimitoken contract deployment: 
+https://sepolia.scrollscan.com//address/0x437e05E34AA72700773DDA2dd97cc64a1Deb2A93#code
+
 ---
 
 ## Features
@@ -14,7 +20,7 @@ With Kimiko, patients earn **tokens** and unlock **exclusive NFTs** as they foll
   
 - **Doctor-Patient Integration**: Doctors can add patients, assign medications, and monitor their adherence.
   
-- **Real-Time Rewards**: Patients earn tokens for completing doses on time. Completing a full course of treatment grants even more rewards.
+- **Real-Time Rewards**: Patients earn tokens to complete doses on time. Completing a full course of treatment grants even more rewards.
   
 - **NFT Incentives**: Exclusive NFTs are unlocked when patients consistently follow their medication schedules, making the adherence journey exciting.
   

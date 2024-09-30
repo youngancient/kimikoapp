@@ -6,7 +6,8 @@ Kimiko is an on-chain medical adherence system designed to help patients manage 
 
 With Kimiko, patients earn **tokens** and unlock **exclusive NFTs** as they follow their prescribed treatment plans, making healthcare adherence fun and rewarding!
 
-In building this project, I used Alchemy as an RPC Provider as defined in my hardhat config.
+In building this project, I used Alchemy as an RPC Provider as defined in my hardhat config. 
+Here are some important links:
 
 - Kimiko Contract Repo: https://github.com/youngancient/kimiko-contract
 - Scroll Alchemy RPC usage in Hardhat config: https://github.com/youngancient/kimiko-contract/blob/main/hardhat.config.ts
@@ -19,10 +20,10 @@ In building this project, I used Alchemy as an RPC Provider as defined in my har
 ## Quick Links
 
 - [Features](#features)
-- [UserRoles](#features)
-- [Token & NFT Rewards](#features)
-- [Smart Contract Functionality](#features)
-- [UI Walkthrough](#features)
+- [User Roles](#user-roles)
+- [Token & NFT Rewards](#token-&-nft-rewards)
+- [Smart Contract Functionality](#smart-contract-functionality)
+- [UI Walkthrough](#ui-walkthrough)
 
 ---
 
@@ -40,7 +41,7 @@ In building this project, I used Alchemy as an RPC Provider as defined in my har
 
 ---
 
-## UserRoles
+## User Roles
 
 ### 1. **Doctor**
    - Can add new patients.

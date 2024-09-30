@@ -21,7 +21,7 @@ Here are some important links:
 
 - [Features](#features)
 - [User Roles](#user-roles)
-- [Token & NFT Rewards](#token-&-nft-rewards)
+- [Token and NFT Rewards](#token-and-nft-rewards)
 - [Smart Contract Functionality](#smart-contract-functionality)
 - [UI Walkthrough](#ui-walkthrough)
 
@@ -61,7 +61,7 @@ Here are some important links:
 
 ---
 
-## Token & NFT Rewards
+## Token and NFT Rewards
 
 - **Token Rewards**: For each successfully completed medication course, patients earn **10 KMK tokens**.
   

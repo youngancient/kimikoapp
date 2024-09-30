@@ -14,7 +14,7 @@ const RewardPage = () => {
   const [newBeneficiary, setNewBeneficiary] = useState(''); 
 
   // Handle beneficiary input change
-  const handleBeneficiaryChange = () => {
+  const handleBeneficiaryChange = (e) => {
     setNewBeneficiary(e.target.value);
   };
 
@@ -47,19 +47,21 @@ const RewardPage = () => {
       <Psidebar />
       <div className="flex-1 ml-52 flex flex-col bg-gray-50">
         <Header />
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+    <div className="flex justify-center dark:text-black items-center min-h-screen bg-gray-100">
       <div className="bg-white p-8 space-y-3 shadow-lg rounded-lg w-full max-w-md">
         <h1 className="text-xl font-semibold mb-4 text-center">Reward Dashboard</h1>
 
         {/* Reward Information */}
-        <div className="mb-4">
-          <h2 className="text-sm font-semibold">Reward Earned</h2>
-          <p className="text-gray-700">{rewardEarned} KMK</p>
-        </div>
+        <div className='grid grid-cols-2 gap-4'>
+          <div className="mb-4 bg-white shadow p-5" >
+            <h2 className="text-sm font-semibold">Reward Earned</h2>
+            <p className="text-gray-700 text-center">{rewardEarned} KMK</p>
+          </div>
 
-        <div className="mb-4">
-          <h2 className="text-sm font-semibold">Reward Claimed</h2>
-          <p className="text-gray-700">{rewardClaimed} KMK</p>
+          <div className="mb-4 bg-white shadow p-5">
+            <h2 className="text-sm font-semibold">Reward Claimed</h2>
+            <p className="text-gray-700 text-center" >{rewardClaimed} KMK</p>
+          </div>
         </div>
 
        

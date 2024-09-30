@@ -48,7 +48,7 @@ const PatientProgress = () => {
       <Sidebar />
       <div className="flex-1 ml-52 flex flex-col bg-gray-50">
         <Header />
-    <div className="w-11/12 mx-auto mt-10">
+    <div className="w-11/12 h-screen mx-auto mt-10">
       <h2 className="text-xl font-bold mb-6">Patient Progress</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-5 gap-6">
         {patients.map((patient, patientIndex) => (

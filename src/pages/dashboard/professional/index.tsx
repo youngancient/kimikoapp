@@ -122,7 +122,7 @@ const DashboardPage = () => {
         <Sidebar />
         <div className="flex-1 ml-52 flex flex-col bg-gray-50">
           <Header />
-          <div className="w-11/12 shadow-lg bg-white rounded-2xl mb-3  mx-auto mt-10 p-5">
+          <div className="w-11/12 shadow-lg dark:text-black bg-white rounded-2xl mb-3  mx-auto mt-10 p-5">
 
             {/* Button to trigger patient modal */}
             <div className='flex w-full justify-between'>
@@ -140,7 +140,7 @@ const DashboardPage = () => {
 
             {/* Patient Modal */}
             {isPatientModalOpen && (
-              <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+              <div className="fixed inset-0 dark:text-black bg-black bg-opacity-50 flex justify-center items-center z-50">
                 <div ref={patientModalRef} className="bg-white rounded-lg shadow-lg w-full max-w-2xl p-8">
                   <div className="flex justify-between items-center mb-4">
                     <h2 className="text-xl font-semibold">Add Patient</h2>
@@ -201,7 +201,7 @@ const DashboardPage = () => {
 
             {/* Medication Modal */}
             {isMedicationModalOpen && (
-              <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+              <div className="fixed inset-0 dark:text-black bg-black bg-opacity-50 flex justify-center items-center z-50">
                 <div ref={medicationModalRef} className="bg-white rounded-lg shadow-lg w-full max-w-2xl p-8">
                   <div className="flex justify-between items-center mb-4">
                     <h2 className="text-xl font-semibold">Add Medication</h2>
@@ -215,7 +215,7 @@ const DashboardPage = () => {
 
                   {/* Form for adding a medication */}
                   <div className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="grid grid-cols-1 dark:text-black md:grid-cols-3 gap-4">
                       <div>
                         <label className="block mb-2 text-sm">Medication Name: </label>
                         <input
@@ -223,7 +223,7 @@ const DashboardPage = () => {
                           name="name"
                           value={medication.name}
                           onChange={handleMedicationChange}
-                          className="w-full text-sm outline-none px-4 py-2 border bg-slate-200 rounded-lg"
+                          className="w-full text-sm dark:text-black outline-none px-4 py-2 border bg-slate-200 rounded-lg"
                           placeholder="e.g., Cancer Medication"
                         />
                       </div>
@@ -235,7 +235,7 @@ const DashboardPage = () => {
                           name="dosage"
                           value={medication.dosage}
                           onChange={handleMedicationChange}
-                          className="w-full text-sm outline-none px-4 py-2 border bg-slate-200 rounded-lg"
+                          className="w-full text-sm outline-none dark:text-black px-4 py-2 border bg-slate-200 rounded-lg"
                           placeholder="e.g., 2mg"
                         />
                       </div>
@@ -246,7 +246,7 @@ const DashboardPage = () => {
                           name="duration"
                           value={medication.duration}
                           onChange={handleMedicationChange}
-                          className="w-full text-sm outline-none px-4 py-2 border bg-slate-200 rounded-lg"
+                          className="w-full text-sm outline-none dark:text-black px-4 py-2 border bg-slate-200 rounded-lg"
                           placeholder="e.g., 2 weeks"
                         />
                       </div>
@@ -357,7 +357,7 @@ const DashboardPage = () => {
                   </tbody>
                 </table>
               ) : (
-                <p>No patients added yet.</p>
+                <p className='text-center text-gray-500'>No patients added yet.</p>
               )}
             </div>
           </div>

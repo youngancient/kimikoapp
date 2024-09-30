@@ -8,7 +8,7 @@ import Link from 'next/link';
 
 const Psidebar = () => {
   return (
-    <div className="bg-blue-500 shadow-md fixed text-white dark:text-white h-screen w-48 py-8 ">
+    <div className="bg-blue-500 shadow-md fixed text-white dark:text-white h-screen w-52 py-8 ">
       <div className="text-xl bg-white mx-3 py-2 flex justify-center items-center  font-bold mb-10">
       <Link href="/">
         <Image

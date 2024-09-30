@@ -72,7 +72,7 @@ const PatientDashboard = () => {
                           {medications.map((med, index) => (
                             <li
                               key={index}
-                              className="flex items-center justify-between bg-gray-300 p-3 rounded-lg"
+                              className="flex dark:text-black items-center justify-between bg-gray-300 p-3 rounded-lg"
                             >
                               <div className="flex space-x-2 items-center">
                                 <BiBandAid />

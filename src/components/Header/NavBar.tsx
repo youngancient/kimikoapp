@@ -3,13 +3,14 @@ import Link from 'next/link';
 import { useRouter } from "next/router";
 import ThemeChanger from "../DarkSwitch";
 import Image from "next/image";
-
+import { CustomConnectButton } from '@/components/custombutton';
 
 const NavBar = () => {
     const dropdownRef = useRef<HTMLDivElement>(null);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const navigation = ["Home", "Features", "About Us"];
     const router = useRouter();
+
 
     useEffect(() => {
         const closeDropdownOnClickOutside = (e: MouseEvent) => {
@@ -67,14 +68,9 @@ const NavBar = () => {
                     </div>
 
                     <div className="hidden mr-3 space-x-4 lg:flex nav__item">
-                        <Link href="/" passHref>
-                            <button
-                                className="px-10 py-3 text-white bg-blue rounded-full md:ml-5"
-                                onClick={() => router.push("/auth")}
-                            >
-                                Connect Wallet
-                            </button>
-                        </Link>
+                       
+                        <CustomConnectButton/>
+                        
                         <ThemeChanger />
                     </div>
 

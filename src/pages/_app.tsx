@@ -24,7 +24,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <RainbowKitProvider modalSize="wide">
     <ThemeProvider attribute="class">
       <Layout>
-        {/* {router.pathname.includes("auth") || <Navbar />} */}
+        
         <Component {...pageProps} />
         {router.pathname.includes("auth") ||
           (!router.pathname.includes("dashboard") && <Footer />)}

@@ -3,10 +3,16 @@ import Container from "./Container";
 import { useRouter } from "next/router";
 import { gsap } from "gsap";
 import { useEffect, useRef } from "react";
+import { useAccount } from "wagmi";
+import { config } from "./config";
+import Navbar from "./Header/NavBar";
+import { toast } from "react-toastify";
 
 interface HeroProps {}
 
 const Hero: React.FC<HeroProps> = () => {
+  
+  const account = useAccount({config});
   const router = useRouter();
   const svg1Ref = useRef<HTMLImageElement>(null);
   const svg2Ref = useRef<HTMLImageElement>(null);
@@ -39,8 +45,20 @@ const Hero: React.FC<HeroProps> = () => {
     );
   }, []);
 
+  const redirect =()=>{
+    console.log(account.address);
+    
+    if(account.address){
+     
+      router.push("/auth")
+    }else{
+      toast.error('Please connect your wallet.');
+    }
+  }
+
   return (
     <>
+    {router.pathname.includes("auth") || <Navbar />}
       <Container className="flex flex-wrap lg:flex-row-reverse">
         <div
           ref={svg1Ref}
@@ -84,7 +102,7 @@ const Hero: React.FC<HeroProps> = () => {
         >
           <div className="max-w-2xl flex flex-col gap-10 mb-8">
             <div>
-              <h1 className="text-3xl font-bold leading-snug tracking-tight text-blue lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight dark:text-white">
+              <h1 className="text-3xl font-bold leading-snug tracking-tight text-blue-500 lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight dark:text-white">
                 Never Miss a Dose !
               </h1>
               <p className="py-5 text-lg leading-normal text-black lg:text-lg  dark:text-white">
@@ -98,10 +116,10 @@ const Hero: React.FC<HeroProps> = () => {
 
             <div className="flex flex-row md:flex-row justify-between lg:gap-8 lg:justify-start items-center">
               <button
-                className="px-3 py-3 whitespace-nowrap text-white bg-blue-700 rounded-full "
-                onClick={() => router.push("/auth")}
+                className="px-3 py-3 whitespace-nowrap text-white bg-blue-500 rounded-full "
+                onClick={redirect}
               >
-                Connect Wallet
+                Go to Dashboard
               </button>
               <button className="px-2 py-3 whitespace-nowrap text-blue border rounded-full ">
                 Learn More

@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 const Sidebar = () => {
   return (
-    <div className="bg-blue-500 shadow-md fixed text-white dark:text-white h-screen w-48 py-5 ">
+    <div className="bg-blue-500 shadow-md fixed text-white dark:text-white h-screen w-52 py-5 ">
        <div className="text-xl bg-white mx-3 py-2 flex justify-center items-center  font-bold mb-10">
       <Link href="/">
         <Image
@@ -20,13 +20,13 @@ const Sidebar = () => {
 
         <Link href="/dashboard/professional">
         <li className="flex flex-col w-3/4 m-auto  items-center space-y-2 cursor-pointer hover:bg-blue-400 p-2 rounded">
-          <FaHome /> <span className='font-semibold text-sm'>Add Patient</span>
+          <FaHome /> <span className='font-semibold text-md'>Add Patient</span>
         </li>
         </Link>
         
         <Link href="/dashboard/professional/patient-progress">
         <li className="flex flex-col w-3/4 m-auto items-center space-y-2 cursor-pointer hover:bg-blue-400 p-2 rounded">
-          <FaClipboardList /> <span className='font-semibold text-sm'>Progress</span>
+          <FaClipboardList /> <span className='font-semibold text-md'>Progress</span>
         </li>
         </Link>
 

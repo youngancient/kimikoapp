@@ -12,15 +12,11 @@ module.exports = {
     // Or if using `src` directory:
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  darkMode: "class",
+  darkMode: ["class", "class"],
   theme: {
-    extend: {
-      colors: {
-        gray: "#768396",
-        blue: "#1A87FF",
-        trueGray: colors.neutral,
-      },
-    },
+  	extend: {
+  		
+  	}
   },
-  plugins: [require("@tailwindcss/aspect-ratio")],
+  plugins: [require("@tailwindcss/aspect-ratio"), require("tailwindcss-animate")],
 };

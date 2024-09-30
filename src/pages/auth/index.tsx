@@ -36,6 +36,7 @@ const SignUp = () => {
     });
     console.log(newUserTypes);
     setSavedUserTypes(newUserTypes);
+
   };
   const saveUserType = () => {
     const selectedType = savedUserTypes.find((ele) => ele.isSelected == true);

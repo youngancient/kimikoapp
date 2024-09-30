@@ -118,11 +118,11 @@ const DashboardPage = () => {
 
   return (
     <>
-      <div className="flex">
+      <div className="flex dark:bg">
         <Sidebar />
         <div className="flex-1 ml-52 flex flex-col bg-gray-50">
           <Header />
-          <div className="w-11/12 shadow-lg dark:text-black bg-white rounded-2xl mb-3  mx-auto mt-10 p-5">
+          <div className="w-11/12 shadow-lg h-screen dark:bg-white dark:text-black bg-white rounded-2xl mb-3  mx-auto mt-10 p-5">
 
             {/* Button to trigger patient modal */}
             <div className='flex w-full justify-between'>

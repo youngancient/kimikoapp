@@ -46,7 +46,7 @@ const DashboardPage = () => {
   };
 
   // Handle input change for medication
-  const handleMedicationChange = (e: ChangeEvent<HTMLInputElement>): void => {
+  const handleMedicationChange = (e: any)=> {
     const { name, value } = e.target;
     setMedication({ ...medication, [name]: value });
   };

@@ -112,7 +112,7 @@ const DashboardPage = () => {
 
       <button
         onClick={toggleModal}
-        className="bg-blue-700 hover:bg-blue-800 text-white p-20 py-2 px-6 rounded-lg shadow-md"
+        className="bg-blue-500 hover:bg-blue-400 text-white p-20 py-2 px-6 rounded-lg shadow-md"
       >
         Add Patient
       </button>
@@ -142,7 +142,7 @@ const DashboardPage = () => {
                   name="name"
                   value={currentPatient.name}
                   onChange={handlePatientChange}
-                  className="w-full text-sm px-4 py-2 border bg-slate-200 rounded-lg"
+                  className="w-full text-sm px-4 outline-none py-2 border bg-slate-200 rounded-lg"
                   placeholder="Enter patient's name"
                 />
               </div>
@@ -153,7 +153,7 @@ const DashboardPage = () => {
                       name="address"
                       value={currentPatient.address}
                       onChange={handlePatientChange}
-                      className="w-full text-sm px-4 py-2 border bg-slate-200 rounded-lg"
+                      className="w-full text-sm px-4 outline-none  py-2 border bg-slate-200 rounded-lg"
                       placeholder="e.g., 0x455584fa3ecd9s"
                     />
                   </div>
@@ -172,7 +172,7 @@ const DashboardPage = () => {
                       name="name"
                       value={medication.name}
                       onChange={handleMedicationChange}
-                      className="w-full text-sm px-4 py-2 border bg-slate-200 rounded-lg"
+                      className="w-full text-sm outline-none  px-4 py-2 border bg-slate-200 rounded-lg"
                       placeholder="e.g., Cancer Medication"
                     />
                   </div>
@@ -189,7 +189,7 @@ const DashboardPage = () => {
                       name="dosage"
                       value={medication.dosage}
                       onChange={handleMedicationChange}
-                      className="w-full text-sm px-4 py-2 border bg-slate-200 rounded-lg"
+                      className="w-full text-sm outline-none  px-4 py-2 border bg-slate-200 rounded-lg"
                       placeholder="e.g., 50mg"
                     />
                   </div>
@@ -208,7 +208,6 @@ const DashboardPage = () => {
                     <label className="block mb-2 text-sm">Interval:</label>
                     <select
                         name="interval"
-                        onChange={handleMedicationChange}
                         value={medication.interval}
                         className="w-full text-sm px-4 py-2 outline-none bg-slate-200 rounded-lg transition-all"
                       >
@@ -234,7 +233,7 @@ const DashboardPage = () => {
                 {/* Button to add medication */}
                 <button
                   onClick={addMedication}
-                  className="mt-4 bg-blue-700 text-sm hover:bg-blue-800 text-white py-2 px-3 rounded-lg"
+                  className="mt-4 bg-blue-500 text-sm hover:bg-blue-400 text-white py-2 px-3 rounded-lg"
                 >
                   Add Medication
                 </button>
@@ -261,7 +260,7 @@ const DashboardPage = () => {
             <div className="mt-6 flex justify-end space-x-4">
               <button
                 onClick={savePatient}
-                className="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-lg transition-all"
+                className="bg-blue-500 hover:bg-blue-400 text-white py-2 px-4 rounded-lg transition-all"
               >
                 Save Patient
               </button>
@@ -284,7 +283,7 @@ const DashboardPage = () => {
           
            <div className="overflow-x-auto">
              <table className="min-w-full bg-white">
-               <thead className="bg-blue-700 text-white">
+               <thead className="bg-blue-500 text-white">
                  <tr>
                    <th className="text-left py-2 px-3 font-semibold uppercase">Patient</th>
                    <th className="text-left py-2 px-3 font-semibold uppercase">Medications</th>
@@ -312,9 +311,9 @@ const DashboardPage = () => {
                      <td className="py-4 px-6">
                        <button
                          onClick={() => editPatient(index)}
-                         className="bg-blue-400 hover:bg-blue-500 text-gray-900 font-semibold py-2 px-4 rounded-lg shadow-md transition-all"
+                         className="border-blue-500 border hover:bg-blue-400 text-blue-400 font-semibold py-2 px-4 rounded-lg shadow-md transition-all"
                        >
-                         Edit
+                         check progress
                        </button>
                      </td>
                    </tr>

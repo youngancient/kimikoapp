@@ -35,9 +35,9 @@ const PatientDashboard = () => {
                 </div>
 
                 <Tabs defaultValue="medications" className="w-full">
-                      <TabsList className="grid w-full grid-cols-2 rounded-md bg-blue-800">
-                        <TabsTrigger value="medications" className="data-[state=active]:bg-blue-600 p-2 m-2 text-white rounded-md">Medications</TabsTrigger>
-                        <TabsTrigger value="progress" className="data-[state=active]:bg-blue-600 p-2 m-2 text-white rounded-md">Progress</TabsTrigger>
+                      <TabsList className="grid w-full grid-cols-2 rounded-md bg-blue-500">
+                        <TabsTrigger value="medications" className="data-[state=active]:bg-blue-400 p-2 m-2 text-white rounded-md">Medications</TabsTrigger>
+                        <TabsTrigger value="progress" className="data-[state=active]:bg-blue-400 p-2 m-2 text-white rounded-md">Progress</TabsTrigger>
                       </TabsList>
 
                   <TabsContent value="medications">

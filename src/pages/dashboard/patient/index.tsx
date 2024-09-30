@@ -1,18 +1,30 @@
-import React, { useState } from 'react';
-import Header from '@/components/Header';
-import Psidebar from '@/components/Sidebar/Patient-Sidebar';
-import { BiBandAid, BiShield } from 'react-icons/bi';
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '@radix-ui/react-tabs';
-import { useAccount } from 'wagmi';
-import { config } from '@/components/config';
-import Modal from "@/components/Modals/modal";  
+import React, { useEffect, useState } from "react";
+import Header from "@/components/Header";
+import Psidebar from "@/components/Sidebar/Patient-Sidebar";
+import { BiBandAid, BiShield } from "react-icons/bi";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@radix-ui/react-tabs";
+import { useAccount } from "wagmi";
+import { config } from "@/components/config";
+import Modal from "@/components/Modals/modal";
+import { useRouter } from "next/router";
+import Head from "next/head";
 
 const PatientDashboard = () => {
   const account = useAccount({ config });
 
   const [medications, setMedications] = useState([
-    { name: 'Aspirin', dosage: '100mg', duration: 'Daily', txHash: '0x1a2b...3c4d' },
-    { name: 'Lisinopril', dosage: '10mg', duration: 'Twice daily', txHash: '0x4e5f...6g7h' },
+    {
+      name: "Aspirin",
+      dosage: "100mg",
+      duration: "Daily",
+      txHash: "0x1a2b...3c4d",
+    },
+    {
+      name: "Lisinopril",
+      dosage: "10mg",
+      duration: "Twice daily",
+      txHash: "0x4e5f...6g7h",
+    },
   ]);
 
   const [isModalOpen, setIsModalOpen] = useState(false); // Modal state
@@ -28,21 +40,41 @@ const PatientDashboard = () => {
     setSelectedMedication(null);
   };
 
+  const { address } = useAccount();
+
+  const router = useRouter();
+  useEffect(() => {
+    console.log(address);
+    if (!address) {
+      router.push("/");
+    }
+  }, [address]);
+
   return (
     <>
+      <Head>
+        <title>Patient | Dashboard</title>
+        <meta name="description" content="Manage account" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <div className="flex">
         <Psidebar />
         <div className="flex-1 ml-52 flex flex-col bg-gray-50">
           <Header />
-          <div  className="w-11/12 shadow-md bg-white rounded-2xl mb-10 mx-auto mt-10 p-5">
+          <div className="w-11/12 shadow-md bg-white rounded-2xl mb-10 mx-auto mt-10 p-5">
             <main className="flex-1 p-8 overflow-auto">
               <header className="flex justify-between items-center mb-8">
-                <h1 className="text-xl font-bold text-gray-800">Patient Dashboard</h1>
+                <h1 className="text-xl font-bold text-gray-800">
+                  Patient Dashboard
+                </h1>
               </header>
               {account.isConnected ? (
                 <div className="bg-gray-100 shadow-lg rounded-lg p-6">
                   <div className="flex justify-between items-center mb-6">
-                    <h2 className="text-lg font-semibold text-black">Patient Name</h2>
+                    <h2 className="text-lg font-semibold text-black">
+                      Patient Name
+                    </h2>
                     <div className="text-sm text-gray-600 flex items-center">
                       <BiShield className="mr-2" />
                       Patient ID: {account.address}
@@ -67,7 +99,9 @@ const PatientDashboard = () => {
 
                     <TabsContent value="medications">
                       <div className="mt-4">
-                        <h3 className="text-lg font-semibold mb-2 text-black">Current Medications</h3>
+                        <h3 className="text-lg font-semibold mb-2 text-black">
+                          Current Medications
+                        </h3>
                         <ul className="space-y-2">
                           {medications.map((med, index) => (
                             <li
@@ -83,18 +117,17 @@ const PatientDashboard = () => {
                                   {med.dosage} - {med.duration}
                                 </span>
                               </div>
-                              <div className='space-x-2'>
+                              <div className="space-x-2">
+                                <button
+                                  onClick={() => handleView(med)} // Open modal with selected medication
+                                  className="bg-blue-500 text-sm hover:bg-blue-400 text-white py-2 px-3 rounded-lg"
+                                >
+                                  View
+                                </button>
 
-                              <button
-                                onClick={() => handleView(med)}  // Open modal with selected medication
-                                className="bg-blue-500 text-sm hover:bg-blue-400 text-white py-2 px-3 rounded-lg"
-                              >
-                                View
-                              </button>
-
-                              <button className="bg-blue-500 text-sm hover:bg-blue-400 text-white py-2 px-3 rounded-lg">
-                                Take Medication
-                              </button>
+                                <button className="bg-blue-500 text-sm hover:bg-blue-400 text-white py-2 px-3 rounded-lg">
+                                  Take Medication
+                                </button>
                               </div>
                             </li>
                           ))}
@@ -104,9 +137,13 @@ const PatientDashboard = () => {
 
                     <TabsContent value="progress">
                       <div className="mt-4">
-                        <h3 className="text-lg font-semibold mb-2 text-black">Medication Adherence</h3>
+                        <h3 className="text-lg font-semibold mb-2 text-black">
+                          Medication Adherence
+                        </h3>
                         <div className="h-64 bg-gray-300 rounded-lg flex items-center justify-center">
-                          <span className="ml-2 text-gray-400">Adherence Chart Placeholder</span>
+                          <span className="ml-2 text-gray-400">
+                            Adherence Chart Placeholder
+                          </span>
                         </div>
                       </div>
                     </TabsContent>
@@ -121,7 +158,11 @@ const PatientDashboard = () => {
       </div>
 
       {/* Modal */}
-      <Modal isOpen={isModalOpen} onClose={closeModal} medication={selectedMedication} />
+      <Modal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        medication={selectedMedication}
+      />
     </>
   );
 };

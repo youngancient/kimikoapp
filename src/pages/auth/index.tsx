@@ -16,13 +16,10 @@ import { useRouter } from "next/router";
 import React from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { scroll, scrollSepolia } from 'viem/chains';
 import { useReadContract, useAccount, useWriteContract, useConnect} from 'wagmi';
 import {Contract_ABI } from "../../components/contract/contract_abi";
-import { injected } from 'wagmi/connectors';
-import { ethers } from 'ethers';
-import { Provider } from "ethers";
-import { WagmiProvider } from "wagmi";
+import { toast } from "react-toastify";
+
 
 export interface IUserType {
   name: "Patient" | "Doctor";
@@ -42,20 +39,7 @@ const SignUp =  () => {
   const [userType, setUserType] = useState<string | undefined>();
   const [savedUserTypes, setSavedUserTypes] = useState(AllUserTypes);
   const { address, isConnected } = useAccount();
-  const { connect } = useConnect({})
-
-  // const { data: signer } = useSigner();
-  console.log("Connected Address:", address);
-  console.log("Is Connected:", isConnected);
-  // interface DoctorDetails {
-  //   id: number;
-  //   name: string;
-  //   specialty: string;
-  // }
-
-
-
-
+  
 
 const contractAddress = '0x8251aEA64aa7d28B9f536f7eb1E1db0BbC8b6386';
 
@@ -65,37 +49,43 @@ const contractAddress = '0x8251aEA64aa7d28B9f536f7eb1E1db0BbC8b6386';
     functionName: "getDoctorDetails",
     account: address,
   });
-  useEffect(() => {
-    console.log("Contract Address:", contractAddress);
-    console.log("ABI:", Contract_ABI);
-    console.log("Is Loading:", isLoading);
-    console.log("Is Success:", isSuccess);
-    console.log("Doctor Details Fetched:", createdDoctor);
-    
-  }, [createdDoctor, contractAddress, error, isLoading, isSuccess]);
   
   const selectUserType = (name: string) => {
     const newUserTypes = savedUserTypes.map((ele) => {
       return { ...ele, isSelected: name === ele.name };
     });
-    console.log(newUserTypes);
+  
     setSavedUserTypes(newUserTypes);
   };
 
 
+  const { data:createdPatient } = useReadContract({
+    abi: Contract_ABI,
+    address: contractAddress,
+    functionName: "getPatientDetails",
+    account: address,
+  });
 
 
   const saveUserType = () => {
     const selectedType = savedUserTypes.find((ele) => ele.isSelected == true);
     if (selectedType?.name == "Patient") {
+      if(!createdPatient){
+        toast.error("Not a patient");
+        return;
+      }
       router.push("/dashboard/patient");
+
     }
-    else if (!isLoading && createdDoctor) {
-      router.push("/dashboard/professional");
-    } else if (!isLoading && !createdDoctor) {
-      setUserType(selectedType?.name);
+    else{
+      if (createdDoctor) {
+        router.push("/dashboard/professional");
+      }
+      else if (!createdDoctor) {
+        setUserType(selectedType?.name);
+      }
     }
-    console.log(createdDoctor);
+    
   }
 
 
@@ -115,7 +105,7 @@ const contractAddress = '0x8251aEA64aa7d28B9f536f7eb1E1db0BbC8b6386';
   const { writeContract, writeContractAsync } = useWriteContract();
   const router = useRouter();
   const signup = (data: IForm) => {
-    console.log(data);
+  
     try {
       const result = writeContractAsync({
         address: contractAddress,

@@ -1,6 +1,9 @@
 import Header from '@/components/Header';
 import Sidebar from '@/components/Sidebar/Sidebar';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
 import React, { useState, useEffect } from 'react';
+import { useAccount } from 'wagmi';
 
 interface Medication {
   name: string;
@@ -42,8 +45,23 @@ const PatientProgress = () => {
     return today > endDate;
   };
 
+  const {address} = useAccount();
+
+  const router = useRouter();
+  useEffect(()=>{
+    if(!address){
+      router.push("/");
+    }
+  },[address]);
+
   return (
     <>
+    <Head>
+        <title>Patient Progress</title>
+        <meta name="description" content="Track patient progress" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
      <div className="flex">
       <Sidebar />
       <div className="flex-1 ml-52 flex flex-col bg-gray-50">

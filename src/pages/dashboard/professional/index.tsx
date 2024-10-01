@@ -4,6 +4,11 @@ import Sidebar from '@/components/Sidebar/Sidebar';
 import { BiX } from "react-icons/bi";
 import { isAddress } from 'viem';
 import { toast } from 'react-toastify';
+import { useAccount } from 'wagmi';
+import { useRouter } from 'next/router';
+import Head from 'next/head';
+
+
 
 interface Dose {
   time: string;
@@ -33,6 +38,8 @@ const DashboardPage = () => {
 
   const patientModalRef = useRef<HTMLDivElement>(null);
   const medicationModalRef = useRef<HTMLDivElement>(null);
+
+  const {address} = useAccount();
 
   // Handle input change for patient
   const handlePatientChange = (e: ChangeEvent<HTMLInputElement>): void => {
@@ -116,8 +123,23 @@ const DashboardPage = () => {
     };
   }, [isPatientModalOpen]);
 
+const router = useRouter();
+  useEffect(()=>{
+    console.log(address);
+    if(!address){
+      router.push("/");
+    }
+  },[address]);
+
   return (
     <>
+    <Head>
+        <title>Profession | Dashboard</title>
+        <meta name="description" content="Manage account" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
       <div className="flex dark:bg">
         <Sidebar />
         <div className="flex-1 ml-52 flex flex-col bg-gray-50">

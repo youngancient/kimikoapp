@@ -4,9 +4,11 @@ import Sidebar from '@/components/Sidebar/Sidebar';
 import { BiX } from "react-icons/bi";
 import { isAddress } from 'viem';
 import { toast } from 'react-toastify';
-import { useAccount } from 'wagmi';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
+import { Contract_ABI } from "../../../components/contract/contract_abi";
+import { useReadContract, useAccount, useWriteContract, useConnect} from 'wagmi';
+
 
 
 
@@ -38,8 +40,9 @@ const DashboardPage = () => {
 
   const patientModalRef = useRef<HTMLDivElement>(null);
   const medicationModalRef = useRef<HTMLDivElement>(null);
-
-  const {address} = useAccount();
+  const { writeContract, writeContractAsync } = useWriteContract();
+  const { address } = useAccount();
+  const contractAddress = '0x8251aEA64aa7d28B9f536f7eb1E1db0BbC8b6386';
 
   // Handle input change for patient
   const handlePatientChange = (e: ChangeEvent<HTMLInputElement>): void => {
@@ -75,16 +78,42 @@ const DashboardPage = () => {
     }
   };
 
+  const { data: allPatient } = useReadContract({
+    abi: Contract_ABI,
+    address: contractAddress,
+    functionName: "getAllPatients",
+    account: address,
+  })as { data: [] };
+  console.log(allPatient);
+  
   // Save the patient with their medications
   const savePatient = (): void => {
     if (!currentPatient.name || !currentPatient.address) {
       toast.error('Please fill in all the fields before saving the patient.');
       return;
     }
+    
     setPatients([...patients, currentPatient]);
-    toast.success('Patient Successfully added');
+    //  how can i set patient here?
+
+
     setCurrentPatient({ name: '', address: "", medications: [] });
     setIsPatientModalOpen(false);
+    console.log(currentPatient.name);
+    try {
+      const result = writeContractAsync({
+        address: contractAddress,
+        abi: Contract_ABI,
+        functionName: 'addPatient',
+        args: [currentPatient.name, currentPatient.address],
+        account: address,
+      })
+      console.log('Patient added', result);
+      toast.success('Patient Successfully added');
+    } catch (error) {
+      console.log(error);
+    }
+    
   };
 
   // Toggle Patient Modal

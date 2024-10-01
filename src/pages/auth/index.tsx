@@ -33,7 +33,7 @@ interface IForm {
   name: string;
   specialty: string;
 }
-const contractAddress = '0x8251aEA64aa7d28B9f536f7eb1E1db0BbC8b6386';
+
 
 const SignUp =  () => {
   const [userType, setUserType] = useState<string | undefined>();

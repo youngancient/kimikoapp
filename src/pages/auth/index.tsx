@@ -78,12 +78,11 @@ const contractAddress = '0x8251aEA64aa7d28B9f536f7eb1E1db0BbC8b6386';
 
     }
     else{
-      if (createdDoctor) {
-        router.push("/dashboard/professional");
-      }
-      else if (!createdDoctor) {
+      if (!createdDoctor) {
         setUserType(selectedType?.name);
+        return;
       }
+      router.push("/dashboard/professional");
     }
     
   }
